@@ -174,7 +174,30 @@
             answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
         }
     </script>
-    
+    <script>
+(function(){
+  window.HAVYChatbotConfig = {
+    chatbotKey: 'YOUR_CHATBOT_KEY',
+    businessName: 'Your Business',
+    position: 'bottom-right',
+    primaryColor: '#6366f1',
+    havyOrigin: 'http://localhost:5173',
+    supabaseUrl: 'https://bnmxamfjavlwgpaskgik.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJubXhhbWZqYXZsd2dwYXNrZ2lrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIyNTk1ODYsImV4cCI6MjA4NzgzNTU4Nn0.TYPfZK2pybP8XWvd8UU7wfFECXTQjqv7mOORaqq0zLw',
+  };
+  window.HAVY_CLIENT_ID = 'YOUR_BUSINESS_ID';
+  window.HAVY_SUPABASE_URL = 'https://bnmxamfjavlwgpaskgik.supabase.co';
+  window.HAVY_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJubXhhbWZqYXZsd2dwYXNrZ2lrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIyNTk1ODYsImV4cCI6MjA4NzgzNTU4Nn0.TYPfZK2pybP8XWvd8UU7wfFECXTQjqv7mOORaqq0zLw';
+
+  var s = document.createElement('script');
+  s.src = 'http://localhost:5173/chatbot-widget.js'; s.defer = true;
+  document.head.appendChild(s);
+
+  var u = document.createElement('script');
+  u.src = 'http://localhost:5173/uat.js'; u.defer = true;
+  document.head.appendChild(u);
+})();
+</script>
 
 
 </body>
