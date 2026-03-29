@@ -1,0 +1,90 @@
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #00796b;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #cccccc;
+    font-size: 1em;
+}
+
+th {
+    background-color: #00796b;
+    color: white;
+}
+
+td {
+    transition: background-color 0.3s;
+}
+
+td.good {
+    background-color: #66bb6a; /* Green for good AQI */
+    color: white;
+}
+
+td.moderate {
+    background-color: #ffeb3b; /* Yellow for moderate AQI */
+}
+
+td.unhealthy-sensitive {
+    background-color: #ffa726; /* Orange for unhealthy for sensitive groups */
+    color: white;
+}
+
+td.unhealthy {
+    background-color: #f44336; /* Red for unhealthy AQI */
+    color: white;
+}
+
+td.very-unhealthy {
+    background-color: #ab47bc; /* Purple for very unhealthy AQI */
+    color: white;
+}
+
+td.hazardous {
+    background-color: #6d4c41; /* Brown for hazardous AQI */
+    color: white;
+}
+
+@media (max-width: 600px) {
+    th, td {
+        font-size: 0.9em;
+    }
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+    margin-top: 40px;
+}
+

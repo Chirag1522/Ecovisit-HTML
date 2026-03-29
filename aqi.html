@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVisit - AQI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section (Same as Home and Map Pages) -->
+    <header>
+        <div class="header-content">
+            <div class="site-title">EcoVisit</div>
+            <div>
+                <button class="nav-button" onclick="location.href='index.html'">Home</button>
+                <button class="nav-button" onclick="location.href='aqi.html'">AQI</button>
+                <button class="nav-button" onclick="location.href='compare\index.html'">Comparison</button>
+                <button class="nav-button" onclick="location.href='map.html'">Map</button>
+                <button class="nav-button" onclick="location.href='about.html'">About Us</button>
+                <button class="nav-button" onclick="location.href='login.html'">Login</button>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="content">
+        <h2 style="text-align:center; color: white;">INDIAN CITIES AQI</h2> <!-- New heading -->
+
+    <!-- AQI Data Section -->
+    <section class="aqi-section">
+        
+        <table class="aqi-table">
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>AQI Value</th>
+                    <th>Health Concern</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="delhi-row">
+                    <td>Delhi</td>
+                    <td id="delhi-aqi">Loading...</td>
+                    <td id="delhi-health">Loading...</td>
+                </tr>
+                <tr id="mumbai-row">
+                    <td>Mumbai</td>
+                    <td id="mumbai-aqi">Loading...</td>
+                    <td id="mumbai-health">Loading...</td>
+                </tr>
+                <!-- Additional cities start here -->
+                <tr id="visakhapatnam-row">
+                    <td>Visakhapatnam</td>
+                    <td id="visakhapatnam-aqi">Loading...</td>
+                    <td id="visakhapatnam-health">Loading...</td>
+                </tr>
+                <tr id="itanagar-row">
+                    <td>Itanagar</td>
+                    <td id="itanagar-aqi">Loading...</td>
+                    <td id="itanagar-health">Loading...</td>
+                </tr>
+                <tr id="guwahati-row">
+                    <td>Guwahati</td>
+                    <td id="guwahati-aqi">Loading...</td>
+                    <td id="guwahati-health">Loading...</td>
+                </tr>
+                <tr id="patna-row">
+                    <td>Patna</td>
+                    <td id="patna-aqi">Loading...</td>
+                    <td id="patna-health">Loading...</td>
+                </tr>
+                <tr id="chandigarh-row">
+                    <td>Chandigarh</td>
+                    <td id="chandigarh-aqi">Loading...</td>
+                    <td id="chandigarh-health">Loading...</td>
+                </tr>
+                <tr id="raipur-row">
+                    <td>Raipur</td>
+                    <td id="raipur-aqi">Loading...</td>
+                    <td id="raipur-health">Loading...</td>
+                </tr>
+                <tr id="panaji-row">
+                    <td>Panaji</td>
+                    <td id="panaji-aqi">Loading...</td>
+                    <td id="panaji-health">Loading...</td>
+                </tr>
+                <tr id="ahmedabad-row">
+                    <td>Ahmedabad</td>
+                    <td id="ahmedabad-aqi">Loading...</td>
+                    <td id="ahmedabad-health">Loading...</td>
+                </tr>
+                <tr id="gurugram-row">
+                    <td>Gurugram</td>
+                    <td id="gurugram-aqi">Loading...</td>
+                    <td id="gurugram-health">Loading...</td>
+                </tr>
+                <tr id="shimla-row">
+                    <td>Shimla</td>
+                    <td id="shimla-aqi">Loading...</td>
+                    <td id="shimla-health">Loading...</td>
+                </tr>
+                <tr id="srinagar-row">
+                    <td>Srinagar</td>
+                    <td id="srinagar-aqi">Loading...</td>
+                    <td id="srinagar-health">Loading...</td>
+                </tr>
+                <tr id="ranchi-row">
+                    <td>Ranchi</td>
+                    <td id="ranchi-aqi">Loading...</td>
+                    <td id="ranchi-health">Loading...</td>
+                </tr>
+                <tr id="bengaluru-row">
+                    <td>Bengaluru</td>
+                    <td id="bengaluru-aqi">Loading...</td>
+                    <td id="bengaluru-health">Loading...</td>
+                </tr>
+                <tr id="kozhikode-row">
+                    <td>Kozhikode</td>
+                    <td id="kozhikode-aqi">Loading...</td>
+                    <td id="kozhikode-health">Loading...</td>
+                </tr>
+                <tr id="bhopal-row">
+                    <td>Bhopal</td>
+                    <td id="bhopal-aqi">Loading...</td>
+                    <td id="bhopal-health">Loading...</td>
+                </tr>
+                <tr id="imphal-row">
+                    <td>Imphal</td>
+                    <td id="imphal-aqi">Loading...</td>
+                    <td id="imphal-health">Loading...</td>
+                </tr>
+                <tr id="aizawl-row">
+                    <td>Aizawl</td>
+                    <td id="aizawl-aqi">Loading...</td>
+                    <td id="aizawl-health">Loading...</td>
+                </tr>
+                <tr id="bhubaneshwar-row">
+                    <td>Bhubaneshwar</td>
+                    <td id="bhubaneshwar-aqi">Loading...</td>
+                    <td id="bhubaneshwar-health">Loading...</td>
+                </tr>
+                <tr id="jaisalmer-row">
+                    <td>Jaisalmer</td>
+                    <td id="jaisalmer-aqi">Loading...</td>
+                    <td id="jaisalmer-health">Loading...</td>
+                </tr>
+                <tr id="gangtok-row">
+                    <td>Gangtok</td>
+                    <td id="gangtok-aqi">Loading...</td>
+                    <td id="gangtok-health">Loading...</td>
+                </tr>
+                <tr id="hyderabad-row">
+                    <td>Hyderabad</td>
+                    <td id="hyderabad-aqi">Loading...</td>
+                    <td id="hyderabad-health">Loading...</td>
+                </tr>
+                <tr id="varanasi-row">
+                    <td>Varanasi</td>
+                    <td id="varanasi-aqi">Loading...</td>
+                    <td id="varanasi-health">Loading...</td>
+                </tr>
+                <tr id="haridwar-row">
+                    <td>Haridwar</td>
+                    <td id="haridwar-aqi">Loading...</td>
+                    <td id="haridwar-health">Loading...</td>
+                </tr>
+                <tr id="darjeeling-row">
+                    <td>Darjeeling</td>
+                    <td id="darjeeling-aqi">Loading...</td>
+                    <td id="darjeeling-health">Loading...</td>
+                </tr>
+            </tbody>
+            
+        </table>
+        </div>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

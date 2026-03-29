@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>States Avg AQI</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Include your existing CSS -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fdfdfd; /* Light background */
+        }
+        header {
+            background-color: #1a1a1a; /* Dark header */
+            padding: 20px;
+            position: fixed; /* Keep the header fixed */
+            width: 100%; /* Full width */
+            top: 0; /* Align to top */
+            z-index: 1000; /* Stay on top */
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .site-title {
+            color: #00e676; /* Site title color */
+            font-size: 2rem; /* Title size */
+        }
+        .nav-button {
+            background-color: #1a1a1a; /* Button background */
+            color: #ffffff; /* Button text color */
+            border: 1px solid #00e676; /* Button border color */
+            padding: 10px 20px; /* Button padding */
+            margin-left: 10px; /* Space between buttons */
+            cursor: pointer; /* Pointer cursor */
+            transition: background-color 0.3s; /* Transition effect */
+        }
+        .nav-button:hover {
+            background-color: #00e676; /* Button hover color */
+            color: #1a1a1a; /* Button hover text color */
+        }
+        .map-title {
+            color: #36dd8c; /* Match title color */
+            font-size: 2.5rem; /* Same size as the site title */
+            text-align: center; /* Center the title */
+            margin-top: 20px; /* Space above the title */
+            font-weight: bold; /* Bold font for emphasis */
+        }
+        #map {
+            width: 100%; /* Full width */
+            height: 700px; /* Set a height */
+            margin-top: 40px; /* Space above the map */
+        }
+        .tooltip {
+            position: absolute;
+            text-align: center;
+            width: 60px;
+            height: 28px;
+            padding: 2px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border: 0px;
+            border-radius: 8px;
+            pointer-events: none;
+            opacity: 0; /* Start hidden */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="site-title">EcoVisit</div>
+            <div>
+                <button class="nav-button" onclick="location.href='index.html'">Home</button>
+                <button class="nav-button" onclick="location.href='map.html'">Map</button>
+                <button class="nav-button" onclick="location.href='comparison.html'">Comparison</button>
+                <button class="nav-button" onclick="location.href='aQIdata.html'">AQI</button>
+                <button class="nav-button" onclick="location.href='about.html'">About Us</button>
+                
+            </div>
+        </div>
+    </header>
+
+    <div class="map-title">States Avg AQI</div> <!-- Title for the map -->
+    <div id="map"></div> <!-- Map container -->
+    <div class="tooltip" id="tooltip"></div> <!-- Tooltip for AQI display -->
+
+    <script>
+        // Set up SVG dimensions
+        const width = document.getElementById('map').clientWidth;
+        const height = 700; // Set the height to 700px for better fit
+
+        const svg = d3.select('#map')
+            .append('svg')
+            .attr('width', '100%') // Set width to 100%
+            .attr('height', height); // Fixed height
+
+        // Define projection and path
+        const projection = d3.geoMercator()
+            .center([78.9629, 20.5937]) // Center on India
+            .scale(1000) // Adjust for map scale
+            .translate([width / 2, height / 2]);
+
+        const path = d3.geoPath().projection(projection);
+
+        // Predefined AQI values for each state
+        const aqiData = {
+    "Andhra Pradesh": 75,    // Moderate
+    "Arunachal Pradesh": 35, // Good
+    "Assam": 65,             // Moderate
+    "Bihar": 210,            // Very Unhealthy
+    "Chhattisgarh": 160,     // Unhealthy
+    "Goa": 40,               // Good
+    "Gujarat": 120,          // Unhealthy for Sensitive Groups
+    "Haryana": 280,          // Very Unhealthy
+    "Himachal Pradesh": 45,  // Good
+    "Jharkhand": 180,        // Unhealthy
+    "Karnataka": 90,         // Moderate
+    "Kerala": 50,            // Good
+    "Madhya Pradesh": 140,   // Unhealthy for Sensitive Groups
+    "Maharashtra": 130,      // Unhealthy for Sensitive Groups
+    "Manipur": 40,           // Good
+    "Meghalaya": 55,         // Moderate
+    "Mizoram": 35,           // Good
+    "Nagaland": 45,          // Good
+    "Odisha": 95,            // Moderate
+    "Punjab": 260,           // Very Unhealthy
+    "Rajasthan": 150,        // Unhealthy for Sensitive Groups
+    "Sikkim": 30,            // Good
+    "Tamil Nadu": 85,        // Moderate
+    "Telangana": 100,        // Moderate
+    "Tripura": 50,           // Good
+    "Uttar Pradesh": 300,    // Hazardous
+    "Uttarakhand": 70,       // Moderate
+    "West Bengal": 220,      // Very Unhealthy
+
+    // Union Territories
+    "Andaman and Nicobar Islands": 25, // Good
+    "Chandigarh": 140,                 // Unhealthy for Sensitive Groups
+    "Dadra and Nagar Haveli and Daman and Diu": 75, // Moderate
+    "Delhi": 350,                      // Hazardous
+    "Jammu and Kashmir": 65,           // Moderate
+    "Ladakh": 30,                      // Good
+    "Lakshadweep": 20,                 // Good
+    "Puducherry": 70                   // Moderate
+};
+
+
+
+        // Define color scale based on AQI levels
+        const colorScale = d3.scaleThreshold()
+    .domain([50, 100, 150, 200, 300])  // Correct AQI breakpoints
+    .range(["#00e400", "#ffff00", "#ff7e00", "#ff0000", "#8f3f97", "#7e0023"]); // Green to Maroon
+
+        // Load GeoJSON data
+        
+d3.json('india.geojson').then(data => {
+    // Draw states
+    svg.selectAll('path')
+        .data(data.features)
+        .enter()
+        .append('path')
+        .attr('d', path)
+        .attr('fill', d => {
+            const stateName = d.properties.st_nm; // Use 'st_nm' from GeoJSON
+            return colorScale(aqiData[stateName] || 0); // Access AQI using the correct property
+        }) // Set fill color based on AQI data
+        .attr('stroke', '#fff') // Border color
+        .attr('stroke-width', 1)
+        .on('mouseover', function(event, d) {
+            const stateName = d.properties.st_nm; // Use 'st_nm' from GeoJSON
+            const aqiValue = aqiData[stateName] || 'N/A';
+            d3.select(this).attr('fill', '#666'); // Change color on hover
+
+            // Show tooltip with AQI value
+            const tooltip = d3.select('#tooltip');
+            tooltip.html(`AQI: ${aqiValue}`)
+                .style('left', (event.pageX + 5) + 'px')
+                .style('top', (event.pageY - 28) + 'px')
+                .style('opacity', 1); // Show tooltip
+        })
+        .on('mouseout', function() {
+            d3.select(this).attr('fill', d => colorScale(aqiData[d.properties.st_nm] || 0)); // Reset color
+            d3.select('#tooltip').style('opacity', 0); // Hide tooltip
+        });
+});
+
+    </script>
+</body>
+<footer>
+    <p>&copy; 2024 EcoVisit. All rights reserved.</p>
+</footer>
+
+
+</html>

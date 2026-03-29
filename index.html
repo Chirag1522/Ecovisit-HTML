@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVisit - AQI Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- HAVY Chatbot + UAT Widget -->
+<script>
+(function(){
+  window.HAVYChatbotConfig = {
+    chatbotKey: 'YOUR_CHATBOT_KEY',
+    businessName: 'Your Business',
+    position: 'bottom-right',
+    primaryColor: '#6366f1',
+    havyOrigin: 'http://localhost:5173',
+    supabaseUrl: 'https://bnmxamfjavlwgpaskgik.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJubXhhbWZqYXZsd2dwYXNrZ2lrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIyNTk1ODYsImV4cCI6MjA4NzgzNTU4Nn0.TYPfZK2pybP8XWvd8UU7wfFECXTQjqv7mOORaqq0zLw',
+  };
+  window.HAVY_CLIENT_ID = 'YOUR_BUSINESS_ID';
+  window.HAVY_SUPABASE_URL = 'https://bnmxamfjavlwgpaskgik.supabase.co';
+  window.HAVY_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJubXhhbWZqYXZsd2dwYXNrZ2lrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIyNTk1ODYsImV4cCI6MjA4NzgzNTU4Nn0.TYPfZK2pybP8XWvd8UU7wfFECXTQjqv7mOORaqq0zLw';
+
+  var s = document.createElement('script');
+  s.src = 'http://localhost:5173/chatbot-widget.js'; s.defer = true;
+  document.head.appendChild(s);
+
+  var u = document.createElement('script');
+  u.src = 'http://localhost:5173/uat.js'; u.defer = true;
+  document.head.appendChild(u);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-title">
+                <img src="LOGO.jpg" alt="EcoVisit Logo" class="logo"> <!-- Logo -->
+                <h1 class="site-title">EcoVisit</h1>
+            </div>
+            <nav>
+                <a href="index.html" class="nav-button">Home</a>
+                <a href="compare/index.html" class="nav-button">Comparison</a>
+                <a href="map.html" class="nav-button">Map</a>
+                <a href="predict/index.html" class="nav-button">Predict</a>
+                <a href="about.html" class="nav-button active">About Us</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="content">
+            <!-- Upper part: Image and Text section -->
+            <div class="upper-body">
+                <div class="image-section">
+                    <img src="AQIbodyPic1.jpg" alt="AQI-related image">
+                </div>
+                <div class="text-section">
+                    <h2>Air Quality Index (AQI) & Health</h2>
+                    <p>Millions of people live in areas where air pollution can cause serious health problems. Local air quality can affect our daily lives. Like the weather, it can change from day to day. EPA developed the Air Quality Index, or AQI, to make information available about the health effects of the five most common air pollutants, and how to avoid those effects.</p>
+                </div>
+            </div>
+
+            <!-- Lower part: Reversed Image and Text section -->
+            <div class="lower-body">
+                <div class="text-section">
+                    <h2>Importance of Air Quality</h2>
+                    <p>Air pollution can harm anyone, but it can be especially dangerous for many people, including children and teens, people with asthma and other lung diseases, anyone over 65, people who have diabetes or cardiovascular disease or who are pregnant. Even healthy adults who exercise or work outdoors can be harmed. Being aware of when the air quality is bad gives you the chance to take steps to protect your health.</p>
+                </div>
+                <div class="image-section">
+                    <img src="AQIbodyPic2.jpg" alt="Air quality image">
+                </div>
+            </div>
+        </div>
+
+        <!-- AQI Advisory Section -->
+        <div class="aqi-advisory">
+            <h2>AQI Advisory</h2>
+            <img src="AQIadvisoryChart.png" alt="AQI Advisory Image" class="aqi-image"> <!-- Image of your choice -->
+            <hr class="separator"> <!-- Separator line -->
+            </div>
+
+            <!-- FAQ Section -->
+<div class="faq-section">
+    <h2>FAQ</h2>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer('answer1')">1. What is AQI?</div>
+        <div class="faq-answer" id="answer1">AQI stands for Air Quality Index, which measures the quality of air in a specific area based on various pollutants.</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer('answer2')">2. How is AQI calculated?</div>
+        <div class="faq-answer" id="answer2">AQI is calculated using the concentrations of various pollutants including PM2.5, PM10, CO, SO2, and Ozone.</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer('answer3')">3. What are the health effects of poor air quality?</div>
+        <div class="faq-answer" id="answer3">Poor air quality can lead to respiratory diseases, cardiovascular issues, and can affect overall health.</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer('answer4')">4. How can I check the AQI?</div>
+        <div class="faq-answer" id="answer4">You can check the AQI through various websites, mobile apps, and local weather stations that provide air quality information.</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer('answer5')">5. What should I do when the AQI is high?</div>
+        <div class="faq-answer" id="answer5">When the AQI is high, it is advisable to limit outdoor activities and wear masks if necessary.</div>
+    </div>
+    <hr class="separator"> <!-- Line to end the FAQ section -->
+</div>
+
+<!-- Horizontal Rule Matching the Style of the Page -->
+<hr class="page-separator">
+
+<!-- News Section -->
+<div class="news-section">
+    <h2 class="news-heading">Latest News</h2>
+
+    <!-- First News Section -->
+    <div class="news-part">
+        <a href="https://www.hindustantimes.com/india-news/india-was-3rd-most-polluted-country-in-2023-world-air-quality-report-101710836837575.html" target="_blank" class="news-link">
+            <img src="Newsimage 1.jpg" alt="News Image 1" class="news-image">
+            <h3>India was 3rd most polluted country in 2023, Delhi most polluted capital: Report</h3>
+        </a>
+    </div>
+
+    <!-- Separator Line -->
+    <hr class="news-separator">
+
+    <!-- Second News Section -->
+    <div class="news-part">
+        <a href="https://www.thehindu.com/sci-tech/health/india-saw-193-drop-in-particulate-pollution-in-2022-adding-51-days-to-life-expectancy-aqli/article68575637.ece" target="_blank" class="news-link">
+            <img src="Newsimage2.jpg" alt="News Image 2" class="news-image">
+            <h3>India saw 19.3% drop in particulate pollution in 2022, adding 51 days to life expectancy: AQLI</h3>
+        </a>
+    </div>
+</div>
+
+<!-- Horizontal Rule to separate sections -->
+<hr class="page-separator">
+
+<!-- International News Section -->
+<div class="news-section">
+    <h2 class="news-heading">International News</h2>
+
+    <!-- First International News Section -->
+    <div class="news-part">
+        <a href="https://apnews.com/article/skiing-fis-wmo-climate-change-9a68058dae529df5d3a61c334cdcb215" target="_blank" class="news-link">
+            <img src="internationanews1.webp" alt="International News Image 1" class="news-image">
+            <h3>World ski body and UN weather agency team up to help winter sports plan for climate change</h3>
+        </a>
+    </div>
+
+    <!-- Separator Line -->
+    <hr class="news-separator">
+
+    <!-- Second International News Section -->
+    <div class="news-part">
+        <a href="https://www.msn.com/en-us/news/us/2-4m-without-power-in-florida-after-hurricane-milton-made-landfall-fatalities-reported/ar-AA1rZLWz" target="_blank" class="news-link">
+            <img src="Internation news1.jpg" alt="International News Image 2" class="news-image">
+            <h3>Nearly 3M without power in Florida after Hurricane Milton made landfall; fatalities reported</h3>
+        </a>
+    </div>  
+</div>       
+    </div>
+
+<hr class="page-separator">
+
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 EcoVisit. All rights reserved.</p>
+    </footer>
+
+
+    <script>
+        function toggleAnswer(answerId) {
+            const answer = document.getElementById(answerId);
+            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+    
+
+
+</body>
+
+</html>

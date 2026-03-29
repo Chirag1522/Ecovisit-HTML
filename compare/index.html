@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Comparison - EcoVisit</title>
+    <style>
+        /* Basic styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .logo-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .site-title {
+            font-size: 24px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #4CAF50;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            font-weight: bold;
+        }
+
+        /* Responsive design for mobile */
+        @media (max-width: 768px) {
+            table {
+                width: 100%;
+                font-size: 12px;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <div class="logo-title">
+                <img src="LOGO.jpg" alt="EcoVisit Logo" class="logo"> <!-- Logo -->
+                <h1 class="site-title">EcoVisit</h1>
+            </div>
+            <nav>
+                <a href="../index.html" class="nav-button">Home</a>
+                <a href="compare.html" class="nav-button active">Comparison</a>
+                <a href="../map.html" class="nav-button">Map</a>
+                <a href="../predict/index.html" class="nav-button">Predict</a>
+                <a href="../about.html" class="nav-button">About Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <h1>AQI Comparison</h1>
+
+    <!-- AQI Comparison Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>State/City</th>
+                <th>November</th>
+                <th>December</th>
+                <th>January</th>
+                <th>February</th>
+                <th>March</th>
+                <th>April</th>
+                <th>May</th>
+                <th>June</th>
+                <th>July</th>
+                <th>August</th>
+                <th>September</th>
+                <th>October</th>
+            </tr>
+        </thead>
+        <tbody id="aqi-table-body">
+            <!-- Rows will be populated dynamically by compare.js -->
+        </tbody>
+    </table>
+
+    <!-- Include the JavaScript file -->
+    <script src="compare.js"></script>
+
+</body>
+<footer>
+    <p>&copy; 2024 EcoVisit. All rights reserved.</p>
+</footer>
+</html>

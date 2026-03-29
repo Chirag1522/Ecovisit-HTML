@@ -1,0 +1,474 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url('your-background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    height: 100vh; /* Ensures full screen height */
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px; /* Added space on the sides */
+}
+
+/* Header Styling */
+header {
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background */
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    position: fixed; /* Keep header fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+/* Logo and site title */
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px; /* Adjust the size of the logo */
+    height: auto;
+    margin-right: 15px; /* Space between logo and EcoVisit text */
+    opacity: 0.8; /* Adjust opacity for blending effect */
+}
+
+.site-title {
+    font-size: 2.5rem;
+    color: #00e676;
+}
+
+/* Navigation Button Styles */
+nav .nav-button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Removes underline from buttons */
+}
+
+nav .nav-button:hover {
+    background-color: rgb(0, 230, 118);
+    color: #fff;
+}
+
+/* Main Content Styling */
+main {
+    flex: 1;
+    margin-top: 100px; /* Adds space to prevent content from being hidden under the header */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Spreads out upper and lower bodies evenly */
+}
+
+/* Upper and Lower body containers */
+.upper-body, .lower-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1; /* Both sections will cover equal height on the page */
+    padding: 1%;
+}
+
+/* Add space between the upper and lower body */
+.lower-body {
+    margin-top: 0.2%; /* Adds more space between upper and lower body */
+}
+
+/* Image and text styling for both sections */
+.image-section img {
+    width: 350px; /* Same size for both upper and lower images */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.text-section {
+    flex: 1;
+    margin-left: 40px;
+    margin-right: 40px; /* Ensures space on both sides */
+    text-align: left;
+}
+
+.text-section h2 {
+    font-size: 2rem;
+    color: #00e676;
+    margin-bottom: 20px;
+}
+
+.text-section p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #333333;
+}
+
+/* Lower body: Image on the right, text on the left */
+.lower-body .text-section {
+    margin-right: 40px;
+    order: 1; /* Ensure text comes first on the left */
+}
+
+.lower-body .image-section {
+    order: 2; /* Ensure image comes after text, on the right */
+}
+
+/* Other styles remain unchanged */
+
+/* AQI Advisory Section */
+.aqi-advisory {
+    padding: 10px; /* Reduced padding */
+    border-top: 2px solid #00e676; /* Separator line matching the theme */
+    text-align: center; /* Center the content */
+    margin-top: 20px; /* Reduced space between lower body and AQI advisory */
+}
+
+.aqi-advisory h2 {
+    font-size: 2rem;
+    color: #00e676; /* Matching color */
+    margin-bottom: 10px; /* Reduced margin below the heading */
+}
+
+.aqi-image {
+    width: 100%; /* Responsive image */
+    max-width: 800px; /* Increased maximum width */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 10px; /* Reduced space above the image */
+}
+
+/* Separator line after the advisory image */
+.separator {
+    border: 0;
+    height: 2px;
+    background-color: #00e676; /* Match theme */
+    margin: 20px 0; /* Space above and below the line */
+}
+
+/* FAQ Section */
+.faq-section {
+    background-color: rgba(51, 51, 51, 0.8); /* Dark theme for FAQ box */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px; /* Space above FAQ box */
+    text-align: left; /* Align text to the left */
+}
+
+.faq-section h2 {
+    font-size: 2rem;
+    color: #00e676; /* Match theme */
+    margin-bottom: 15px; /* Space below the heading */
+}
+
+.faq-item {
+    margin-bottom: 10px; /* Space between questions */
+}
+
+.faq-question {
+    background-color: #00e676; /* Background for question */
+    color: #333; /* Text color */
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #009c4c; /* Darker shade on hover */
+}
+
+.faq-answer {
+    display: none; /* Hidden by default */
+    margin-top: 5px; /* Space between question and answer */
+    padding: 10px;
+    background-color: #f0f0f0; /* Light background for answer */
+    color: #333; /* Text color */
+    border-radius: 5px;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(30, 30, 30, 0.95); /* Dark background with slight transparency */
+    padding: 20px;
+    position: fixed; /* Keep header fixed */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    color: #00e676; /* Title color */
+    font-size: 2.5rem;
+}
+
+.nav-button {
+    background-color: #00e676; /* Light theme for buttons */
+    color: #333; /* Text color */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #9c7200; /* Darker shade on hover */
+}
+
+/* Other styles remain unchanged */
+
+.map-title {
+    color: #00e676; /* Match title color */
+    font-size: 2.5rem; /* Same size as the site title */
+    text-align: center; /* Center the title */
+    margin-top: 20px; /* Space above the title */
+    font-weight: bold; /* Bold font for emphasis */
+}
+
+
+/* AQI Section Styling */
+.aqi-section {
+    padding: 20px;
+    text-align: center;
+    color: #f0f0f0;
+}
+
+.aqi-table {
+    width: 80%;
+    margin: 000.2px auto; 
+    border-collapse: collapse;
+}
+
+.aqi-table th, .aqi-table td {
+    padding: 10px;
+    border: 1px solid #fff;
+    color: #f0f0f0;
+}
+
+.aqi-table th {
+    background-color: #444;
+}
+
+.aqi-table td {
+    background-color: #333;
+}
+
+.aqi-table tr:nth-child(even) {
+    background-color: #555;
+}
+
+/* Styling for AQI Table */
+.aqi-table td {
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+}
+
+/* Add this to your existing CSS file */
+.content h2 {
+    font-size: 40px; /* Adjust size as needed */
+    margin-top: 7rem; /* Space above and below */
+    margin-bottom: 2rem;
+    text-align: center; /* Center the text */
+    color: white; /* Match header text color */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    padding: 10px; /* Add some padding */
+    border-radius: 7px; /* Rounded corners */
+}
+
+
+/* Add to your existing CSS file */
+.comparison-container {
+    display: flex;
+    justify-content: center; /* Center the rectangles */
+    margin: 120px 100px 100px; /* Adjust top margin to create space below header */
+}
+
+.rectangle {
+    background-color: #333; /* Dark background color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Space inside the rectangles */
+    margin: 0 10px; /* Space between rectangles */
+    flex: 1; /* Make both rectangles take equal space */
+}
+
+.rectangle h2 {
+    color: #00e676; /* Heading color */
+    text-align: center; /* Center the text */
+}
+
+.rectangle select {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside the select box */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* Remove default border */
+    background-color: #555; /* Dark background for the select box */
+    color: white; /* Text color */
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: white; /* Change as per your theme */
+    color: black;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #00e676; /* Darker shade on hover */
+}
+
+
+
+
+
+/* Ensure responsiveness */
+@media (max-width: 768px) {
+    .upper-body, .lower-body {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-section img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .text-section {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .logo {
+        width: 30px; /* Smaller logo on mobile */
+    }
+}
+
+
+
+
+.news-section {
+    background-color: #4e4e4e;
+    color: #00e676;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 40px;
+}
+
+.news-part {
+    margin-bottom: 40px;
+}
+
+.news-separator {
+    border: 0;
+    height: 1px;
+    background: #00e676;
+    margin: 20px 0;
+}
+
+
+
+
+.page-separator {
+    border: 10px;
+    height: 2px;
+    background-color: #00e676;   /* Matches the style of other horizontal lines on the page */
+    margin: 40px 0;
+}
+
+.news-heading {
+    text-align: center;
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+
+
+.news-section {
+    background-color: #444444;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.news-part {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.news-link {
+    text-decoration: none;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.news-link:hover {
+    color: #00e676; /* Change to your desired color on hover */
+}
+
+.news-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 30px;
+    border-radius: 8px;
+}
+
+.news-heading {
+    text-align: center;
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.news-separator {
+    border: 0;
+    height: 1px;
+    background: #666;
+    margin: 20px 0;
+}
+
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #4a4a4a;
+    color: white;
+    margin-top: 40px;
+}
